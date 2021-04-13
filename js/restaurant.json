@@ -1,0 +1,69 @@
+[
+  {
+     "id":1,
+     "source": "json",
+     "restaurantName":"Orient",
+     "address":"Rue Rabearivelo, 101 Antananarivo",
+     "lat":-18.87881468955829,
+     "long":47.507766352702404,
+     "ratings":[
+        {
+           "stars":3,
+           "comment":"After having waited a very long time, the dishes served do not correspond to the dishes ordered."
+        },
+        {
+           "stars":4,
+           "comment":"Very chic place where the local dishes are of very good quality."
+        },
+        {
+         "stars":5,
+         "comment":"Great! Very good Asian cuisine, the setting is superb."
+      } ,
+      {
+         "stars":3,
+         "comment":"Impressive setting but the cuisine a little less."
+      }
+     ],
+      "url": "img/orient.jpg"
+  },
+  {
+     "id":2,
+     "source":"json",
+     "restaurantName":"Saka",
+     "address":"IBK7 Rue tsaraRue, 101 Antananarivo",
+     "lat":-18.875826455294447,
+     "long":47.50568495871539,
+     "ratings":[
+        {
+           "stars":5,
+           "comment":"The cuisine is always of high quality for a very affordable price."
+        },
+        {
+           "stars":3,
+           "comment":"Classic menu, interesting but on the plates, it's not bad but we are far, very far from a notion of gastronomy."
+        }
+     ],
+     "url": "img/saka.jpg"
+  },
+  {
+   "id":3,
+   "source":"json",
+   "restaurantName":"Isakafo",
+   "address":"Rue Andriandahy, 101 Antananarivo",
+   "lat":-18.87730124483594,
+   "long":47.51023610055433,
+   "ratings":[
+      {
+         "stars":3,
+         "comment":"Good food, original dishes, nice decor but staff who are in the juice with 3 people in the room."
+      },
+      {
+         "stars":2,
+         "comment":"Very disappointing! The welcome and the service are unprofessional."
+      }
+   ],
+   "url": "img/isakafo.jpg"
+}
+]
+
+

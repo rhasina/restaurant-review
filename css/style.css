@@ -1,0 +1,349 @@
+/* General
+------------------------------------------------------------- */
+body{
+	font-family: Roboto, sans-serif;    
+	margin:0;
+	padding:0;	
+}
+.btn{
+	background-color:#F64B29;
+	border:1px solid #F64B29;	
+	border-radius:8px;
+	color: #FFFFFF;
+	outline:none;
+}
+.btn:hover{
+	background-color:transparent;
+	color:#F64B29;
+}
+
+/* Header
+------------------------------------------------------------- */
+/* Menu */
+.bg-dark{
+    line-height: 2;
+   background-color: rgba(26, 26, 33,0.95)!important;
+   
+}
+.navbar-dark{    
+    background-color:transparent!important;  
+	color:#fff; 
+}
+.navbar-dark .navbar-nav .nav-item{
+    padding-left:10px;
+    padding-right:10px;
+}
+.navbar-dark .navbar-nav .nav-item .nav-item-list{
+	border-radius:8px;
+	border:1px solid #F7B02E;
+	color:#fff;
+	outline:none;
+	cursor:pointer;
+}
+.navbar-dark .navbar-nav .nav-item .nav-item-list:hover{	
+	color:#5A5A5D;		
+}
+.filter{
+	border-radius:5px!important;
+	font-size:15px;
+}
+
+/* Mobile menu */
+.navbar-dark .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255,255,255,0.9)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+.navbar-dark .navbar-toggler{
+    border:rgb(227,46,66)!important;
+    outline:none;    
+}
+.logo{
+	max-width:275px;
+}
+
+/* Main content
+------------------------------------------------------------- */
+.main-wrapper{
+	margin-top:76px!important;
+}
+.main-content{
+	position:relative;
+}
+
+/* Map
+------------------------------------------------------------- */
+.mapboxgl-ctrl-group{
+	border-radius:8px;
+}
+.mapboxgl-ctrl-group:not(:empty) {
+    box-shadow: 0 0 0 1px rgba(0,0,0,.1);
+   
+}
+.map-wrapper{
+	padding:0;
+	margin:0;
+}
+.map{
+	height: calc(100vh - 76px);
+}
+
+/* Marker */
+.marker {
+	background-image: url('../img/usr.png');
+	background-size: cover;
+	cursor: pointer;
+	height:50px;
+  	width: 30px;  	
+ 	z-index:10;  	
+}
+.resto-marker {  
+	background-image: url('../img/resto.png');
+	background-size: cover;
+	cursor: pointer;
+	height:50px;
+	width: 30px;	
+}
+
+/* Popup */
+/* Marker tweaks */
+.mapboxgl-popup-close-button {
+	display: none;
+}  
+.mapboxgl-popup{
+	z-index:11;
+}
+.popup-title{
+	padding: 5px;
+    font-size: 18px;
+}
+.popup-review,.popup-star,.popup-review{
+	font-weight: 500;
+}
+.popup-average{
+	font-weight: 600;
+}
+.popup-average,.popup-star{
+	color:#E7711B;
+}
+.popup-average,.popup-review{	
+	font-size:15px;	
+}
+.popup-star{
+	color:#E7711B;
+	font-size:18px;	
+	padding:5px;
+}
+.popup-review{	
+	color:#88888A;
+}
+/* Sidebar : Listings
+------------------------------------------------------------- */
+.sidebar{
+	background-color:#1A1A21;
+	color:#fff;
+	max-height: calc(100vh - 76px);
+    overflow: auto;
+}
+
+/* Heading */
+.heading-title{
+	font-weight: 400;
+}
+.heading-title{
+	font-size: 1.5rem;
+	font-weight: 400;
+	padding:10px;
+}
+
+/* Listing item */
+.item{	
+	border-top: 1px solid #666668;
+	border-radius:6px;
+	display: table;
+    height: 100px;
+    line-height: 1.58;
+    margin-bottom: 13px;
+	padding: 13px 0 0 16px;
+	position: relative;
+    table-layout: fixed;
+    width: 100%;
+    max-height: 96px;
+    min-height: 58px;    
+}
+.item-title{
+	color:#C8C8C9;
+	font-weight: 500;
+	font-size:18px;
+	letter-spacing: 0.7px;	
+}
+.item-title:hover{
+	color:#C8C8C9;
+	text-decoration: none;
+}
+
+/* Item details */
+.item-details,.item-review{
+	color:#8D8A8C;
+}
+.item-img{
+	border: 0;
+	border-radius:8px;
+	cursor: pointer;	
+	float:left;	
+	height: 90px;
+    left: 0px;
+	position: relative;
+	padding-top: 3px;
+	top: 0px;	
+	width: 90px;	
+	margin-right:10px;
+}
+.badge{
+	align-self: center;
+	background-color:#D78C04;
+	color: rgb(227,227,227);
+	font-weight: 500;
+	font-size: 15px;	
+}
+.item-review{
+	color:#D78C04;
+	font-size:15px;
+	font-weight: 300;
+	letter-spacing: 0.7px;
+	padding:5px;	
+}
+.item-rating span{
+	display: block;
+}
+.item-rating{
+	display:flex;
+	justify-content: space-between;
+}
+.item-star{
+	color:#D78C04;
+	font-size:20px;
+}
+
+/* Active item */
+.listings .item.active .item-details{
+	color:#fff;
+}
+.listings .item.active {
+	border-top: 1px solid rgb(227,227,227);
+	border-radius:8px;
+}
+.listings .item.active .badge{
+	color:#1A1A21;
+}
+.listings .item.active .item-details{
+	font-weight: 300;
+}
+
+/* Reviews
+------------------------------------------------------------- */
+.reviews{
+	background-color:rgba(26, 26, 33,0.9);
+	position:absolute;
+	top:0;
+	left:0;
+	color:#fff;
+	padding: 13px 0 0 16px;
+	padding-left: 15px;
+	padding-right: 15px;
+	z-index:50;
+	display:none;
+	height: calc(100vh - 76px);
+	overflow: auto;
+}
+.restaurant{
+	border-bottom: 2px solid #666668;
+	padding-bottom:15px;
+}
+.show{
+	display:block!important;
+}
+.review-item{
+	padding: 10px;
+    margin: 15px 10px;
+    box-shadow: -1px 3px 40px 0px rgba(2,2,2,0.6);
+}
+.review-header{
+	display:flex;
+	justify-content: space-between;
+}
+.review-title{
+	display:block;
+	font-size:1.65rem;
+}
+.review-comment{
+	font-weight: 300;
+}
+.close-review{
+	display: block;
+    border: none;
+    background-color: transparent;    
+    outline: none;
+}
+.close{
+	outline:none!important;
+}
+
+/* Add reviews */
+.modal{
+	color:#1A1A21
+}
+.modal-content{
+	border-radius:10px;
+}
+.modal-backdrop{
+	z-index:10!important;
+}
+.modal-backdrop.show {
+    opacity: .7;
+}
+.add-review-tile{
+	background-color: #e1e2e0;
+	border:none;
+	height: 90px;	
+	line-height: 20px;
+	padding: 10px;
+	width:100%;
+}
+.entry-error{
+	color:#F64B29;
+	display:none;	
+	font-size:14px;
+}
+
+/* Add restaurant
+------------------------------------------------------------- */
+.popup-add{
+	background: #fff;
+	box-shadow: -1px 3px 40px 0px rgba(2,2,2,0.2);
+	border-radius: 8px;
+	display: none;
+	max-height:350px;
+    max-width: 300px; 
+	position:absolute;
+	padding: 10px;
+	left:10px;
+	top:100px;  
+	z-index:12;
+}
+.form-control{
+    border-radius: .8rem;
+}
+.form-control:focus{
+    border-color:rgb(81,81,81);
+}
+input::placeholder,textarea::placeholder{
+	font-size:.9rem;
+}
+
+/* Media queries
+------------------------------------------------------------- */
+@media screen and (max-width:375px) , (min-width:768px) and (max-width:1170px) {
+	.item-rating{
+		clear:both;
+		padding-top: 5px;
+	}
+}

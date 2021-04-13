@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Restaurant review</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta charset="utf-8">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+	<script src='https://api.mapbox.com/mapbox-gl-js/v2.0.1/mapbox-gl.js'></script>
+	<link href='https://api.mapbox.com/mapbox-gl-js/v2.0.1/mapbox-gl.css' rel='stylesheet' />	 
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container-fluid">
+        <!-- Header -->
+        <header  class="header bg-dark fixed-top mb-0 ">
+            <div class="container">
+                <div class="row">
+                    <nav class="col navbar navbar-expand-lg bg-dark navbar-dark ">
+                        <a class="col-4 navbar-brand text-left justify-content-start" href="index.html">
+                            <img src="img/logo.png" class="logo" alt="logo">
+                        </a>
+
+                        <button id="button-toggler" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent">
+                            <span  class="navbar-toggler-icon"></span>
+                        </button>
+
+                        <div id="navbarContent" class="collapse navbar-collapse col-12 col-lg-8 justify-content-end">
+                            <form class="form-inline justify-content-between text-center">                         
+                                <div class="form-group mb-2 mr-2">
+                                    <label for="minRate" class="mr-2">Min</label>
+                                    <select class="form-control filter shadow-none" id="minRate">
+                                        <option selected>0</option>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                    </select>
+                                </div>                            
+                            
+                                <div class="form-group mb-2  mr-2">
+                                    <label for="maxRate" class="mr-2">Max</label>
+                                    <select class="form-control  filter shadow-none" id="maxRate">
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option selected >5</option>
+                                    </select>
+                                </div>
+
+                                <div class="align-self-center">                          
+                                    <button type="button" id="filter" class="btn shadow-none mb-2 px-3">Filter</button>
+                                </div>                            
+                            </form>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </header>
+
+		<!-- Main Content -->
+        <main id="main-container" class="main-wrapper">
+			<section id="main-content" class="row main-content">
+                <!-- Map -->
+				<div id="map-wrapper" class="map-wrapper col-lg-8 col-md-7">					
+					<div id='map' class="map">					
+					</div>				
+				</div>
+		    		
+				<!-- List of restaurants  -->
+				<div class='col-lg-4 col-md-5 sidebar' >
+					<div class="heading">
+						<h3 class="text-center heading-title"> List of restaurants </h3>
+					</div>
+					<div id="listings" class="listings">                        
+                    </div>						
+                </div>
+                
+				<!-- Restaurant reviews: item reviews-->
+                <div class="reviews col-lg-8 col-md-7" id="review-info">
+                    <div class="restaurant"> 
+                        <div class="review-header">   
+                            <h2 class="restaurant-name review-title" id="review-name"></h2>
+                            <button type="button" id="close-review" class="btn close-review shadow-none">X</button>
+                        </div>
+
+                        <p class="restaurant-address" id="review-address">                      
+                        </p>
+
+                        <div class="resto-rating">
+                            <span class="badge item-average" id="review-average"></span>
+                            <span class="item-star" id="review-star"></span>
+                            <span class="item-review" id="review-comment">Reviews: (4)</span>
+                        </div>
+                    </div>                   
+                        
+                    <div class="review-header py-3 d-flex justify-content-between">
+                        <h3 class="review-title d-block">Reviews</h3>
+                        <button type="button" id ="add-review" data-toggle="modal" class="btn d-block shadow-none" data-target="#modalReview"> New review </button>
+                    </div>
+                    
+                    <div id="review-list"></div>                    
+
+                    <!-- Modal to add review -->
+                    <div class="modal fade" id="modalReview" tabindex="-1" role="dialog"  aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header justify-content-center">                                    
+                                    <h5 class="modal-title " id="your-resto" > </h5>
+                                    <button type="button" id="close-modal" class="close shadow-none" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+
+                                <div class="modal-body">
+                                    <div>
+                                       <form>                                            
+                                            <div class="form-group">                                                
+                                                <select class="form-control shadow-none" id="userRating">
+                                                    <option>1</option>
+                                                    <option>2</option>
+                                                    <option>3</option>
+                                                    <option>4</option>
+                                                    <option>5</option>
+                                                </select>
+                                            </div>                                            
+                                            <input type="hidden" id="new-review" name="new-review">                                            
+                                            <textarea name="your-review" id="your-review" class="add-review-tile" placeholder="Share your experience about this place" required></textarea>                                          
+                                            <div id="addCommentError" class="entry-error"> Please enter your comment in the textarea above.</div>
+                                        </form>
+                                    </div>                
+                                </div>
+
+                                <div class="modal-footer">
+                                    <button type="button" id="modal-add-review" class="btn shadow-none" >Add review </button>                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>				
+			</section>
+		
+			<!-- Form: Adding new restaurant -->
+			<div id="add-form" class="popup-add col-lg-8 col-md-7">                
+                <div>
+				    <form id='form' name='adding-restaurant-form' class="col-10 col-lg-12 mx-auto ">                            
+						<div class="form-group">
+							<label for="new-resto" class="font-weight-bold">Name</label>
+							<input type="text" class="form-control shadow-none" id="new-resto" name="identity" placeholder="Tamboho" required>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="hidden" id="latitude" name="latitude">
+                            <input type="hidden" id="longitude" name="longitude">
+                        </div>
+							
+						<div class="form-group">
+							<label for="new-address" class="font-weight-bold">Address</label>
+							<input id="new-address" name="searchinput" placeholder="Address" class="controls form-control input-md shadow-none" required type='search'>
+                        </div>
+
+                        <div id="addRestauError" class="entry-error"> Please check your entries</div>
+                    </form>
+				</div>
+				<div class="text-right">
+					<button type="button" id ="new-add" class="btn shadow-none px-3">Add </button>
+                    <button type="button" id ="new-close" class="btn shadow-none px-3">Close</button>
+				</div>				
+			</div>
+		</main>                        
+    </div>  
+
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.0.0/mapbox-gl.js'></script>
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.5.1/mapbox-gl-geocoder.min.js"></script>
+    <link
+    rel="stylesheet"
+    href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.5.1/mapbox-gl-geocoder.css"
+    type="text/css"
+    />    
+    <script src="js/map.js"></script>  
+    <script src="Js/store.js"></script>    
+    <script src="js/restaurant.js"></script>
+</body>
+</html>
