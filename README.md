@@ -7,10 +7,10 @@ A single page application which displays restaurants near the user's location an
 ## Technologies 
 The main technologies and tools I used for this are:
 
-HTML 5 / CSS3
-Bootstrap 4
-Javascript
-MapBox API
-Foursquare API
+- HTML 5 / CSS3
+- Bootstrap 4
+- Javascript
+- MapBox API
+- Foursquare API
 
 
